@@ -70,7 +70,7 @@
                         .then(result => {
                             const city = result.address.city || result.address.town || result.address.village || 'Unknown';
     
-                            fetch('/tasks', {
+                            fetch('/tasks/', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
