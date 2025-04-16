@@ -1,0 +1,17 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables file
+.env
+
+# Virtual environment
+venv/
+env/
+
+
+*.log
+*.sqlite3
+*.db
+*.pyc

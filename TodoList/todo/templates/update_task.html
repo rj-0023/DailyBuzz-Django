@@ -1,0 +1,13 @@
+{% extends "base.html" %} {%block content%}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="task_name">Task:</label>
+    <input type="text" name="task_name" value="{{task.task}}">
+    <label for="completed">Completed:</label>
+    <input type="checkbox" name="completed" {% if task.is_completed %}checked{% endif %}>
+  
+    <button type="submit">Update Task</button>
+  </form>
+{% endblock %}
