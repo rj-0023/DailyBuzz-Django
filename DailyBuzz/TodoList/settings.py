@@ -84,6 +84,7 @@ WSGI_APPLICATION = 'TodoList.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+ALLOWED_HOSTS = ['dailybuzz-django-1.onrender.com', 'localhost', '127.0.0.1']
 
 load_dotenv()
 DATABASES = {
