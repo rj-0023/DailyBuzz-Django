@@ -59,7 +59,8 @@ def create_task(request):
         task_name = request.POST.get("task")
         to_be_completed = request.POST.get("to_be_completed")
 
-        TodoList.objects.create(task=task_name,
+        TodoList.objects.create(user=request.user,
+                                task=task_name,
                                 to_be_completed = to_be_completed)
         return redirect("tasks")
     return render(request, "create_task.html")
