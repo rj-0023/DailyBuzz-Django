@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
       flex-direction: column;
       align-items: center;
     }
-  
+
     #Todo-List {
       display: flex;
       flex-wrap: wrap;
@@ -23,7 +23,7 @@
       width: 100%;
       justify-content: space-between;
     }
-  
+
     .widget {
       background-color: #ffffff;
       padding: 1.5rem;
@@ -32,19 +32,19 @@
       flex: 1 1 48%;
       min-width: 300px;
     }
-  
+
     .widget h1,
     .widget h3 {
       margin-top: 0;
       color: #111827;
     }
-  
+
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-  
+
     li {
       background-color: #f9fafb;
       border-radius: 0.75rem;
@@ -52,7 +52,7 @@
       margin-bottom: 1rem;
       border-left: 5px solid #3b82f6;
     }
-  
+
     button {
       background-color: #3b82f6;
       color: white;
@@ -64,55 +64,102 @@
       margin-right: 0.5rem;
       transition: background-color 0.2s;
     }
-  
+
     button:hover {
       background-color: #2563eb;
     }
-  
+
+    nav {
+      width: 100%;
+      background-color: #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav .nav-left {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav .nav-right {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #1f2937;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
     #weather-widget {
       text-align: center;
     }
-  
+
     #weather-widget p {
       margin: 0.5rem 0;
       font-size: 1.1rem;
     }
-  
+
     a {
       text-decoration: none;
     }
-  
+
     a strong {
       color: #1f2937;
     }
-  
+
     @media (max-width: 768px) {
       #Todo-List {
         flex-direction: column;
       }
-  
+
       .widget {
         flex: 1 1 100%;
       }
     }
   </style>
-  
-  
+
+
 </head>
 <body>
   <nav>
+  <div class="nav-left">
     <ul>
       <li><a href="{% url 'home' %}">Home</a></li>
       {% if user.is_authenticated %}
         <li><a href="{% url 'tasks' %}">My Tasks</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <div class="nav-right">
+    <ul>
+      {% if user.is_authenticated %}
         <li><a href="{% url 'logout' %}">Logout</a></li>
       {% else %}
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>
       {% endif %}
     </ul>
-  </nav>
-    
+  </div>
+</nav>
+
 {% block content%} {%endblock%}
 </body>
 </html>
