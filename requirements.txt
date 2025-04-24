@@ -40,7 +40,6 @@ pyasn1_modules==0.4.2
 pydantic==2.11.3
 pydantic_core==2.33.1
 pyparsing==3.2.3
-pypiwin32==223
 PySocks==1.7.1
 python-decouple==3.8
 python-dotenv==1.1.0
