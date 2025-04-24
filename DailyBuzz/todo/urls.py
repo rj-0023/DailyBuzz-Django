@@ -16,6 +16,8 @@ urlpatterns = [
     path("login/", views.user_login, name="login"),
     path("logout/", views.user_logout, name="logout"),
     path("", include(router.urls)),
+    path("tasks/voice-to-text/", views.voice_to_task, name="voice_to_task"),
+
     
 ]
 
