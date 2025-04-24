@@ -134,6 +134,27 @@
         flex: 1 1 100%;
       }
     }
+
+    #recordingIndicator {
+      color: red;
+      font-weight: bold;
+      display: none;
+      animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+  }
+
+  .voice-record-btn {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+  }
   </style>
 
 

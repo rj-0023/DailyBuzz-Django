@@ -15,6 +15,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegistrationForm
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def home(request):
@@ -133,3 +134,36 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('home')
+
+
+
+@csrf_exempt
+@login_required
+def voice_to_task(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            text = data.get("text", "")
+            if not text:
+                return JsonResponse({"error": "No text provided"}, status=400)
+
+            # Import and use your model inference
+            from .gemini import your_model_inference
+            result = your_model_inference(text)
+            print(result)
+            if result["intent"] == "create_task":
+                from .models import TodoList
+                TodoList.objects.create(
+                    user=request.user,
+                    task=result["task"],
+                    to_be_completed=result["datetime"]
+                )
+                
+                return JsonResponse({"status": "success", "task": result["task"]})
+            else:
+                return JsonResponse({"status": "ignored", "reason": "Unsupported intent"})
+
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+
+    return JsonResponse({"error": "Invalid method"}, status=405)
