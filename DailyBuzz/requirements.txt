@@ -28,7 +28,7 @@ gunicorn==23.0.0
 httplib2==0.22.0
 idna==3.10
 multidict==6.4.3
-newsapi==0.1.1
+newsapi-python==0.2.7
 packaging==24.2
 propcache==0.3.1
 proto-plus==1.26.1
@@ -40,6 +40,7 @@ pyasn1_modules==0.4.2
 pydantic==2.11.3
 pydantic_core==2.33.1
 pyparsing==3.2.3
+pypiwin32==223
 PySocks==1.7.1
 python-decouple==3.8
 python-dotenv==1.1.0
@@ -58,4 +59,3 @@ uritemplate==4.1.1
 urllib3==2.4.0
 whitenoise==6.9.0
 yarl==1.19.0
-newsapi-python==0.2.7
