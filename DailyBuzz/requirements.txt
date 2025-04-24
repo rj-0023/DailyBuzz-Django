@@ -48,7 +48,6 @@ python-decouple==3.8
 python-dotenv==1.1.0
 python-weather==2.0.7
 pyttsx3==2.98
-pywin32
 requests==2.32.3
 rsa==4.9.1
 setuptools==78.1.0
